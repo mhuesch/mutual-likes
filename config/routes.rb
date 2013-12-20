@@ -1,4 +1,12 @@
 MutualLikes::Application.routes.draw do
+
+  root 'home#login'
+  get '/friends' => 'home#friends', as: :friends
+  get '/likes/:id' => 'home#likes', as: :likes
+
+  match '/auth/:provider/callback' => 'sessions#create', via: [:get, :post]
+  get '/logout' => 'sessions#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
