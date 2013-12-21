@@ -9,7 +9,7 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-if ENV['SECRET_TOKEN'].length < 30
+if ENV['SECRET_TOKEN'].blank?
   raise 'SECRET_TOKEN environment variable must be set!'
 end
 
