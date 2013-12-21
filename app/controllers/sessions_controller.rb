@@ -5,9 +5,6 @@ class SessionsController < ApplicationController
     if params[:error] == 'access_denied'
       render :text => "Sorry, you didn't allow access to the app."
     else
-=begin
-      render :text => "%s _____ %s" % [ request.env['omniauth.auth'].inspect, request.env['omniauth.auth']['info'].inspect ]
-=end
       auth = request.env['omniauth.auth']
       unless @auth = Authorization.find_from_hash(auth)
         # Create a new user or add an auth to existing user, depending on
@@ -18,7 +15,7 @@ class SessionsController < ApplicationController
       # Log the authorizing user in.
       self.current_user = @auth.user
 
-      render :text => "Welcome, #{current_user.name}."
+      redirect_to friends_path
     end
   end
 
