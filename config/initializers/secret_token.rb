@@ -9,9 +9,5 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-if ENV['SECRET_TOKEN'].blank?
-  raise 'SECRET_TOKEN environment variable must be set!'
-end
-
 MutualLikes::Application.config.secret_key_base = ENV['SECRET_TOKEN']
 
