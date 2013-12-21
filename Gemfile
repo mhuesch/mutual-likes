@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
+# Facebook Library
+gem "koala", "~> 1.8.0rc1"
+
 gem 'omniauth-facebook'
+
 gem 'unicorn'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

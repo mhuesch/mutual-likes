@@ -1,2 +1,6 @@
-<h1>Home#friends</h1>
-<p>Find me in app/views/home/friends.html.erb</p>
+<h2>Select a friend to view mutual likes</h2>
+
+<% @friends.each do |friend| %>
+  <%= link_to(friend['name'], likes_path(id: friend['id'])) %>
+  <br>
+<% end %>
