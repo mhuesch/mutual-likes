@@ -6,14 +6,14 @@
 
 <% else %>
 
-  <% @intersect_likes.each do |like| %>
-    <%= like['name'] %>
-    <br>
-  <% end %>
+  <ul>
+    <% @intersect_likes.each do |like| %>
+      <li><%= like['name'] %></li>
+    <% end %>
+  </ul>
 
 <% end %>
 
-<br>
 <br>
 
 <%= link_to "Back to friends", friends_path %>

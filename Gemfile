@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "twitter-bootstrap-rails"
+
 # Facebook Library
 gem "koala", "~> 1.8.0rc1"
 
