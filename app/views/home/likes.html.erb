@@ -1,2 +1,19 @@
-<h1>Home#likes</h1>
-<p>Find me in app/views/home/likes.html.erb</p>
+<h2>Mutual likes with <%= @friend['name'] %></h2>
+
+<% if @intersect_likes.empty? %>
+
+  <i>No shared likes</i>
+
+<% else %>
+
+  <% @intersect_likes.each do |like| %>
+    <%= like['name'] %>
+    <br>
+  <% end %>
+
+<% end %>
+
+<br>
+<br>
+
+<%= link_to "Back to friends", friends_path %>
