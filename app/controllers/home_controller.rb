@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  include HomeHelper
   before_filter :check_token, only: [:friends, :likes]
 
   def login
@@ -25,7 +26,7 @@ class HomeController < ApplicationController
     end
     #
     # Get intersection of likes
-    @intersect_likes = User.likes_intersect(user_likes, friend_likes)
+    @intersect_likes = likes_intersect(user_likes, friend_likes)
   end
 
   private
