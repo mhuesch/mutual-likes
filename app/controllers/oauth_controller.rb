@@ -1,8 +1,12 @@
 class OauthController < ApplicationController
   def callback
-    session[:access_token] = Koala::Facebook::OAuth.new(callback_url).get_access_token(params[:code]) if params[:code]
+    if params[:error] == 'access_denied'
+      redirect_to failure_path
+    else
+      session[:access_token] = Koala::Facebook::OAuth.new(callback_url).get_access_token(params[:code]) if params[:code]
 
-    redirect_to session[:access_token] ? friends_path : failure_path
+      redirect_to session[:access_token] ? friends_path : failure_path
+    end
   end
 
   def failure
