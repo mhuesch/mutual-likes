@@ -4,8 +4,9 @@ MutualLikes::Application.routes.draw do
   get '/friends' => 'home#friends', as: :friends
   get '/likes/:id' => 'home#likes', as: :likes
 
-  match '/auth/:provider/callback' => 'sessions#create', via: [:get, :post], as: :provider_callback
-  get '/logout' => 'sessions#destroy'
+  match '/oauth/callback' => 'oauth#callback', as: :callback, via: [:get]
+  get '/oauth/failure' => 'oauth#failure', as: :failure
+  get '/oauth/logout' => 'oauth#logout', as: :logout
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
