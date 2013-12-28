@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   before_filter :check_token, only: [:friends, :likes]
 
   def login
+    @auth_url = Koala::Facebook::OAuth.new.url_for_oauth_code(callback: callback_url, permissions: 'user_likes,user_friends,friends_likes')
   end
 
   def friends
@@ -27,6 +28,9 @@ class HomeController < ApplicationController
     #
     # Get intersection of likes
     @intersect_likes = likes_intersect(user_likes, friend_likes)
+  end
+
+  def failure
   end
 
   private

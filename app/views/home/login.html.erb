@@ -1,1 +1,1 @@
-<%= link_to "Sign in with Facebook", Koala::Facebook::OAuth.new.url_for_oauth_code(callback: callback_url, permissions: 'user_likes,user_friends,friends_likes'), class: "zocial facebook" %>
+<%= link_to "Sign in with Facebook", @auth_url, class: "zocial facebook" %>

@@ -4,8 +4,8 @@ MutualLikes::Application.routes.draw do
   get '/friends' => 'home#friends', as: :friends
   get '/likes/:id' => 'home#likes', as: :likes
 
-  match '/oauth/callback' => 'oauth#callback', as: :callback, via: [:get]
-  get '/oauth/failure' => 'oauth#failure', as: :failure
+  match '/oauth/callback' => 'oauth#callback', as: :callback, via: [:get], trailing_slash: true
+  get '/oauth/failure' => 'home#failure', as: :failure
   get '/oauth/logout' => 'oauth#logout', as: :logout
 
   # The priority is based upon order of creation: first created -> highest priority.
